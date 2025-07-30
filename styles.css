@@ -27,27 +27,32 @@ body {
    Navigation Bar
 ==================== */
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
-  padding: 1.5rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-  background-color: rgba(10, 10, 10, 0.7); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Frosted glass effect */
+  z-index: 999;
+  background-color: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-sizing: border-box;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 .logo {
-  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
   font-weight: 700;
-  font-size: 1.5rem;
   color: var(--text-color);
   text-decoration: none;
+  letter-spacing: 1px;
   transition: color 0.3s ease;
 }
 
@@ -59,8 +64,6 @@ body {
   list-style: none;
   display: flex;
   gap: 2rem;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links a {
@@ -71,7 +74,6 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Animated underline on hover */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -90,6 +92,73 @@ body {
 .nav-links a:hover::after {
   width: 100%;
   left: 0;
+}
+
+/* ========================
+   Hamburger Menu (Mobile)
+======================== */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ========================
+   Responsive Nav
+======================== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: rgba(10, 10, 10, 0.95);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .menu-toggle:checked ~ .nav-links {
+    max-height: 400px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Animate hamburger into X */
+  .menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+  }
 }
 
 /* ====================
