@@ -704,6 +704,8 @@ body {
     font-size: clamp(1.2rem, 5vw, 2rem);
   }
 }
+
+
 /* ============================
    EDUCATION & SKILLS SECTION
 ============================= */
@@ -715,6 +717,42 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Section Title */
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInSlideUp 1s ease-in-out;
+}
+
+.section-title h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--accent-color, #00d1ff);
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: var(--accent-color, #00d1ff);
+  border-radius: 2px;
+}
+
+.section-title p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: rgba(240, 240, 240, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 /* Grid Container */
 .edu-skills-container {
   max-width: 1200px;
@@ -722,58 +760,93 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 3rem;
+  animation: fadeInSlideUp 1s ease-in-out;
 }
 
-/* Section Headings */
+/* Card Headings */
 .edu-heading {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 700;
   color: var(--accent-color, #00d1ff);
   margin-bottom: 1rem;
+  position: relative;
 }
 
-/* Left Block (Education + CV) */
-.edu-card {
-  background-color: #151515;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 209, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Education Description */
-.edu-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(230, 230, 230, 0.85);
-  margin-bottom: 2rem;
-}
-
-/* Download Button */
-.btn-download {
-  display: inline-block;
-  padding: 0.9rem 2rem;
+.edu-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
   background: var(--accent-color, #00d1ff);
-  color: #000;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 0 12px rgba(0, 209, 255, 0.3);
-  transition: transform 0.3s ease, background 0.3s ease;
+  margin-top: 0.5rem;
+  border-radius: 2px;
 }
 
-.btn-download:hover {
-  background: #00b3e0;
-  transform: translateY(-3px);
-}
-
-/* Right Block (Programming Languages) */
+/* Education & Skills Card Styles */
+.edu-card,
 .skills-card {
   background-color: #151515;
   padding: 2rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 0 20px rgba(0, 209, 255, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInSlideUp 1s ease-in-out;
+}
+
+.edu-card:hover,
+.skills-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 209, 255, 0.2);
+}
+
+/* Education Description Text */
+.edu-description {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  line-height: 1.7;
+  color: rgba(230, 230, 230, 0.85);
+  margin-bottom: 2rem;
+}
+
+/* Download CV Button */
+.btn-download {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--accent-color, #00d1ff);
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 2px solid var(--accent-color, #00d1ff);
+  box-shadow: 0 0 12px rgba(0, 209, 255, 0.2);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  text-align: center;
+}
+
+.btn-download::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, #00d1ff, #0fffc1, #00d1ff);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.btn-download:hover::before {
+  left: 0;
+}
+
+.btn-download:hover {
+  color: #000;
+  background: transparent;
+  box-shadow: 0 0 15px #00d1ff99;
+  border-color: #0fffc1;
 }
 
 /* Skills Grid */
@@ -792,24 +865,56 @@ body {
   padding: 0.75rem 1rem;
   border-radius: 10px;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 1s ease;
 }
 
 .skills-grid li:hover {
   background-color: rgba(0, 209, 255, 0.15);
+  transform: scale(1.05);
 }
 
-/* Responsive Text */
+/* ==================
+   Animations
+================== */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Tweaks */
 @media (max-width: 768px) {
-  .edu-description {
+  .edu-description,
+  .skills-grid {
     text-align: center;
   }
 
   .btn-download {
+    display: block;
     width: 100%;
     text-align: center;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
   }
 }
