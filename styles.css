@@ -704,3 +704,112 @@ body {
     font-size: clamp(1.2rem, 5vw, 2rem);
   }
 }
+/* ============================
+   EDUCATION & SKILLS SECTION
+============================= */
+
+.education-skills {
+  padding: 6rem 5%;
+  background: linear-gradient(to bottom, #0c0c0c, #111111);
+  color: #f4f4f4;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Grid Container */
+.edu-skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+}
+
+/* Section Headings */
+.edu-heading {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--accent-color, #00d1ff);
+  margin-bottom: 1rem;
+}
+
+/* Left Block (Education + CV) */
+.edu-card {
+  background-color: #151515;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 209, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Education Description */
+.edu-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(230, 230, 230, 0.85);
+  margin-bottom: 2rem;
+}
+
+/* Download Button */
+.btn-download {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: var(--accent-color, #00d1ff);
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(0, 209, 255, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-download:hover {
+  background: #00b3e0;
+  transform: translateY(-3px);
+}
+
+/* Right Block (Programming Languages) */
+.skills-card {
+  background-color: #151515;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(0, 209, 255, 0.08);
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.skills-grid li {
+  background-color: rgba(0, 209, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  transition: background 0.3s ease;
+}
+
+.skills-grid li:hover {
+  background-color: rgba(0, 209, 255, 0.15);
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  .edu-description {
+    text-align: center;
+  }
+
+  .btn-download {
+    width: 100%;
+    text-align: center;
+  }
+}
