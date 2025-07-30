@@ -412,104 +412,153 @@ body {
 
 
 
-/* ================
-   About Section
-================ */
+/* ========================
+   ABOUT SECTION STYLING
+======================== */
+
+/* Main wrapper for the About section */
 .about-section {
-  padding: 5rem 5%;
-  background: radial-gradient(circle at center, #0a0a0a 0%, #1a1a1a 100%);
-  color: var(--text-color);
+  padding: 8rem 5%; /* Vertical & horizontal padding */
+  text-align: center;
+  background: linear-gradient(180deg, var(--primary-bg-end), #050505); /* Smooth background gradient */
+  color: var(--text-color); /* Inherits main text color */
 }
 
+/* Container for layout control */
 .about-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: auto;
-  gap: 3rem;
-}
-
-.about-left {
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
+  flex-wrap: wrap; /* Responsive wrap on smaller screens */
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 4rem; /* Space between left and right */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Left side: contains animated stat circles */
+.about-left {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Base styles for each circle */
 .circle {
-  width: 120px;
-  height: 120px;
+  width: clamp(120px, 15vw, 180px);
+  height: clamp(120px, 15vw, 180px);
   border-radius: 50%;
-  color: #0a0a0a;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-align: center;
-  line-height: 1.2;
+  background-color: var(--secondary-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(0, 209, 255, 0.3);
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--accent-color);
+  border: 2px solid rgba(0, 209, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 209, 255, 0.2);
+  position: absolute;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideInLeft 1s ease forwards;
+  opacity: 0;
 }
 
+/* Text inside circles */
 .circle span {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
   font-weight: 500;
-  color: #0a0a0a;
+  color: rgba(240, 240, 240, 0.7);
+  margin-top: 0.2rem;
 }
 
-.linkedin {
-  background-color: #00d1ff;
+/* Positioning for specific circles */
+.circle.linkedin {
+  top: 10%;
+  left: 10%;
+  z-index: 3;
+  animation-delay: 0.2s;
 }
 
-.behance {
-  background-color: #ff0066;
-  width: 140px;
-  height: 140px;
+.circle.behance {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation-delay: 0.4s;
 }
 
-.dribbble {
-  background-color: #ff66c4;
+.circle.dribbble {
+  bottom: 10%;
+  right: 10%;
+  z-index: 1;
+  animation-delay: 0.6s;
 }
 
-/* Right Section */
+/* Right side: contains heading, description, and info cards */
 .about-right {
   flex: 2;
   min-width: 300px;
+  text-align: left;
+  animation: slideInRight 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.8s;
 }
 
+/* Section title */
 .about-heading {
-  color: var(--accent-color);
-  font-size: 1rem;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-}
-
-.about-subheading {
-  font-size: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
   font-weight: 700;
-  margin-bottom: 1.5rem;
   color: var(--text-color);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
 }
 
+/* Underline for the heading */
+.about-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Section subheading (passion/motto/etc) */
+.about-subheading {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+  font-weight: 600;
+  color: var(--accent-color);
+  margin: 1.5rem 0;
+  line-height: 1.3;
+}
+
+/* Short paragraph describing developer background */
 .about-description {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   line-height: 1.7;
-  color: rgba(240, 240, 240, 0.9);
-  margin-bottom: 2rem;
+  color: rgba(240, 240, 240, 0.7);
+  margin-bottom: 2.5rem;
 }
 
-/* Info Cards */
+/* Container for mini cards (info blocks) */
 .about-cards {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
+/* Individual info card */
 .card {
   background-color: #121212;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -519,47 +568,139 @@ body {
   flex: 1;
   min-width: 220px;
   transition: transform 0.3s ease;
+  text-align: left;
 }
 
+/* Hover effect for cards */
 .card:hover {
   transform: translateY(-5px);
 }
 
+/* Stat number */
 .card h3 {
   font-size: 2rem;
   color: var(--accent-color);
   margin-bottom: 0.3rem;
 }
 
+/* Label (e.g. "Years of Experience") */
 .card h4 {
   font-size: 1.2rem;
   font-weight: 600;
+  color: var(--text-color);
 }
 
+/* Supporting text */
 .card p {
   font-size: 0.95rem;
   color: rgba(240, 240, 240, 0.85);
   margin-top: 0.3rem;
+  word-break: break-word;
 }
 
-/* ================
-   Responsive
-================ */
+/* ===========================
+   Animations
+=========================== */
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===========================
+   Responsive Adjustments
+=========================== */
+
+/* Tablet breakpoint */
 @media (max-width: 992px) {
   .about-container {
     flex-direction: column;
     text-align: center;
   }
 
-  .about-left {
-    justify-content: center;
-  }
-
+  .about-left,
   .about-right {
+    justify-content: center;
     text-align: center;
+    min-width: unset;
   }
 
   .about-cards {
     justify-content: center;
+  }
+
+  .about-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .circle {
+    width: clamp(100px, 20vw, 150px);
+    height: clamp(100px, 20vw, 150px);
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .circle {
+    width: clamp(80px, 25vw, 120px);
+    height: clamp(80px, 25vw, 120px);
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+
+  .circle span {
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  }
+
+  .about-heading {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .about-subheading {
+    font-size: clamp(1.2rem, 5vw, 2rem);
   }
 }
