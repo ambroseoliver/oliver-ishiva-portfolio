@@ -5,9 +5,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Oliver Ambrose - Portfolio Website </title>
-  
+
+  <!-- Title -->
+  <title>Oliver Ambrose - Portfolio Website</title>
+
   <!-- SEO Meta Information -->
   <meta name="description" content="Oliver Ambrose's Portfolio - Showcasing my projects." />
   <meta name="keywords" content="Oliver Ambrose, Portfolio, Web Development, Projects, Skills" />
@@ -31,53 +32,75 @@
 
 <body>
 
-  <!-- Navigation Bar -->
- <nav class="navbar">
-  <div class="nav-container">
-    <a href="#" class="logo">OLIVER</a>
+  <!-- =======================
+       Navigation Bar
+  ======================== -->
+  <nav class="navbar">
+    <div class="nav-container">
 
-    <!-- Hamburger Toggle -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <!-- Logo -->
+      <a href="#" class="logo">OLIVER</a>
 
-    <!-- Navigation Links -->
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+      <!-- Hamburger Toggle for Mobile -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-  <!-- Hero Section -->
-<section class="hero-section" id="home">
-  <div class="hero-content">
-    <p class="hero-greeting">Hi, I'm</p>
-    
-    <h1 class="hero-name">
-      <span class="typewriter" id="type-name">Oliver Ambrose</span>
-    </h1>
-    
-    <h2 class="hero-title">
-      <span class="typewriter" id="type-title">Web Developer</span>
-    </h2>
-    
-    <p class="hero-description">
-  From ideation to deployment, I thrive on the creative chaos. My passion lies in rapidly prototyping new ideas and building user-centric products under pressure.
-</p>
-  </div>
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-  <img 
-    src="/assets/hero image.jpg" 
-    alt="Oliver Ambrose Profile" 
-    class="profile-image"
-  />
-</section>
+    </div>
+  </nav>
+
+  <!-- =======================
+       Hero Section
+  ======================== -->
+  <section class="hero-section" id="home">
+    <div class="hero-content">
+
+      <!-- Greeting -->
+      <p class="hero-greeting">Hi, I'm</p>
+
+      <!-- Name with typing effect -->
+      <h1 class="hero-name">
+        <span class="typewriter" id="type-name">Oliver Ambrose</span>
+      </h1>
+
+      <!-- Title with typing effect -->
+      <h2 class="hero-title">
+        <span class="typewriter" id="type-title">Web Developer</span>
+      </h2>
+
+      <!-- Description paragraph -->
+      <p class="hero-description">
+        From ideation to deployment, I thrive on the creative chaos. My passion lies in rapidly prototyping new ideas and building user-centric products under pressure.
+      </p>
+
+      <!-- Call-to-action Buttons -->
+      <div class="hero-buttons">
+  <a href="#projects" class="hero-btn hero-btn-projects">View Projects</a>
+  <a href="#contact" class="hero-btn hero-btn-hire">Hire Me</a>
+</div>
+
+
+    </div>
+
+    <!-- Profile Image -->
+    <img 
+      src="/assets/hero image.jpg" 
+      alt="Oliver Ambrose Profile" 
+      class="profile-image"
+    />
+  </section>
 
 </body>
 </html>
+ 
