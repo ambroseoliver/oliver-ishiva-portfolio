@@ -918,3 +918,62 @@ body {
     padding: 0.75rem 1.5rem;
   }
 }
+
+/* =======================
+   INTERESTS SECTION STYLING
+========================= */
+.interests-section {
+  padding: 6rem 5%;
+  background: linear-gradient(to bottom, #111111, #0c0c0c);
+  color: #f4f4f4;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeInSlideUp 1s ease-in-out;
+}
+
+.interests-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  text-align: center;
+  color: var(--accent-color, #00d1ff);
+  margin-bottom: 2rem;
+}
+
+.interests-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.interests-list li {
+  background-color: rgba(0, 209, 255, 0.05);
+  border-left: 4px solid var(--accent-color, #00d1ff);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.interests-list li:hover {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .interests-section {
+    padding: 4rem 3%;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+
+  .interests-list li {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+} 
