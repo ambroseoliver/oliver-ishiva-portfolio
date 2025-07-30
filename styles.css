@@ -411,3 +411,155 @@ body {
 }
 
 
+
+/* ================
+   About Section
+================ */
+.about-section {
+  padding: 5rem 5%;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #1a1a1a 100%);
+  color: var(--text-color);
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 3rem;
+}
+
+.about-left {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  color: #0a0a0a;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(0, 209, 255, 0.3);
+}
+
+.circle span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0a0a0a;
+}
+
+.linkedin {
+  background-color: #00d1ff;
+}
+
+.behance {
+  background-color: #ff0066;
+  width: 140px;
+  height: 140px;
+}
+
+.dribbble {
+  background-color: #ff66c4;
+}
+
+/* Right Section */
+.about-right {
+  flex: 2;
+  min-width: 300px;
+}
+
+.about-heading {
+  color: var(--accent-color);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.about-subheading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(240, 240, 240, 0.9);
+  margin-bottom: 2rem;
+}
+
+/* Info Cards */
+.about-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 209, 255, 0.08);
+  flex: 1;
+  min-width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.3rem;
+}
+
+.card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: rgba(240, 240, 240, 0.85);
+  margin-top: 0.3rem;
+}
+
+/* ================
+   Responsive
+================ */
+@media (max-width: 992px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-left {
+    justify-content: center;
+  }
+
+  .about-right {
+    text-align: center;
+  }
+
+  .about-cards {
+    justify-content: center;
+  }
+}
