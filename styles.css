@@ -164,15 +164,19 @@ body {
 /* ====================
    Hero Section
 ==================== */
+/* ===========================
+   HERO SECTION - MAIN STYLING
+=========================== */
 .hero-section {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 5%;
-  gap: 5%; /* Gap between text and image */
+  gap: 5%; /* Space between text and image */
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .hero-content {
@@ -181,68 +185,86 @@ body {
   z-index: 1;
 }
 
+/* ========================
+   Hero Text & Animations
+======================== */
+
+/* Intro greeting */
 .hero-greeting {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
   color: rgba(240, 240, 240, 0.9);
   margin-bottom: 0.5rem;
+  animation: fadeInSlideUp 1s ease forwards;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInSlideUp 1s ease forwards;
 }
 
+/* Name - with typing effect */
 .hero-name {
+  display: inline-block;
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
   line-height: 1.1;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInSlideUp 1s ease 0.2s forwards;
+  margin: 0 0 0.5rem 0;
 }
 
+/* Job title - with typing effect */
 .hero-title {
   font-size: clamp(2rem, 4.5vw, 3.5rem);
   font-weight: 600;
   color: var(--accent-color);
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInSlideUp 1s ease 0.4s forwards;
+  margin: 0 0 1.5rem 0;
 }
 
+/* Typing animation */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--accent-color);
+  animation: typing 3s steps(20) 1 forwards, blink 0.75s step-end 4; /* Blink only 4 times */
+}
+
+
+/* Delay typing for second line */
+#type-title {
+  animation-delay: 3.2s;
+  animation-duration: 2.5s;
+}
+
+/* Hero description paragraph */
 .hero-description {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
   color: rgba(240, 240, 240, 0.8);
   max-width: 500px;
   line-height: 1.6;
   margin-bottom: 2.5rem;
+  animation: fadeInSlideUp 1s ease 0.6s forwards;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInSlideUp 1s ease 0.6s forwards;
 }
 
-/* ====================
-   Profile Image Styling
-==================== */
+/* ======================
+   PROFILE IMAGE STYLING
+====================== */
 .profile-image {
   width: clamp(180px, 20vw, 350px);
   height: clamp(180px, 20vw, 350px);
-  border-radius: 50%; /* Make image circular */
+  border-radius: 50%;
   object-fit: cover;
   object-position: center;
   border: 5px solid var(--accent-color);
-  box-shadow: 0 0 30px rgba(0, 209, 255, 0.5); /* Soft glow */
+  box-shadow: 0 0 30px rgba(0, 209, 255, 0.5);
   z-index: 1;
   flex-shrink: 0;
   animation: fadeIn 2s ease forwards;
 }
 
-/* ====================
-   Keyframe Animations
-==================== */
+/* ======================
+   KEYFRAME ANIMATIONS
+====================== */
+
 @keyframes fadeInSlideUp {
   from {
     opacity: 0;
@@ -263,22 +285,40 @@ body {
   }
 }
 
-/* ====================
-   Responsive Styles
-==================== */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 
-/* Large tablets & small laptops */
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--accent-color);
+  }
+}
+
+
+/* ========================
+   RESPONSIVE DESIGN
+======================== */
+
+/* Tablets and small laptops */
 @media (max-width: 992px) {
   .hero-section {
-    flex-direction: column; /* Stack vertically */
+    flex-direction: column;
     text-align: center;
-    padding-top: 100px; /* Space below fixed navbar */
+    padding-top: 100px;
     gap: 2rem;
   }
 
   .hero-content {
-    margin-right: 0;
-    margin-bottom: 0;
+    text-align: center;
   }
 
   .hero-greeting,
@@ -296,34 +336,19 @@ body {
 
 /* Tablets */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 1rem 5%;
-  }
-
-  .nav-links {
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
   .hero-title {
     font-size: clamp(2rem, 8vw, 3rem);
   }
 }
 
-/* Mobile Phones */
+/* Small screens (phones) */
 @media (max-width: 480px) {
-  .navbar {
-    padding: 0.8rem 4%;
+  .hero-description {
+    font-size: 1rem;
   }
 
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.8rem;
-  }
-
-  .logo {
-    font-size: 1.2rem;
+  .profile-image {
+    margin-top: 1rem;
   }
 }
+
