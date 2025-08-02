@@ -1111,8 +1111,121 @@ body {
   }
 }
 
+/* ============================
+    CONTACT SECTION STYLING
+============================ */
+.contact-section {
+  background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+  padding: 6rem 5%;
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #00d1ff;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  color: rgba(240, 240, 240, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.contact-form {
+  background-color: #1a1a1a;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 209, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: rgba(240, 240, 240, 0.8);
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #f0f0f0;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00d1ff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 209, 255, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-submit-btn {
+  background-color: #00d1ff;
+  color: #0a0a0a;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  align-self: flex-start;
+}
+
+.contact-submit-btn:hover {
+  background-color: #00b3e0;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 209, 255, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 1.8rem;
+  }
+
+  .contact-submit-btn {
+    align-self: center;
+    width: 100%;
+  }
+}
+
+
 /* ===============================
-   🌌 FOOTER SECTION (NO LIBRARIES)
+    FOOTER SECTION (NO LIBRARIES)
 =============================== */
 .main-footer-section {
   background: linear-gradient(to top, #1a1a1a, #0a0a0a);
